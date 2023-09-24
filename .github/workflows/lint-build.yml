@@ -1,0 +1,37 @@
+name: Pull Request checks
+on: [pull_request]
+
+jobs:
+  lint_build_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
+    name: Run on Node ${{ matrix.node }}
+
+    steps:
+      - name: Checkout the commit
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
+
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      #      - name: Run lint
+#        id: lint
+#        run: |
+#          pnpm lint
+
+      - name: Run build
+        id: build
+        if: steps.lint.outcome == 'success'
+        run: |
+          pnpm build

@@ -1,0 +1,47 @@
+{
+  "name": "typeorm-seeder",
+  "version": "0.0.1",
+  "description": "Seeder and Factories for TypeORM",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">= 14.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "fmt": "prettier --config .prettierrc 'src/**/*.ts' 'tests/**/*.ts' --write",
+    "lint": "npx eslint --ext .ts src/ tests/",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "dependencies": {
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "size-limit": "^8.2.4",
+    "tslib": "^2.5.3",
+    "typescript": "^4.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arafatkn/typeorm-seeder.git"
+  },
+  "keywords": [
+    "TypeORM",
+    "Seeder",
+    "Factories"
+  ],
+  "author": "Arafat Islam <arafatkn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arafatkn/typeorm-seeder/issues"
+  },
+  "homepage": "https://github.com/arafatkn/typeorm-seeder#readme"
+}
